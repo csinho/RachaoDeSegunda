@@ -1,0 +1,29 @@
+ion-content{
+    --background: #000;
+}
+
+img {
+    border: solid 2px var(--ion-color-light);
+    margin-top: 130px;
+    margin-left: 20%;
+    border-radius: 2%;
+    object-fit: cover;  
+    width: 60%;
+    height: 300px;
+  }
+
+  .center {
+    text-align: center;
+    color: var(--ion-color-light);
+  }
+
+  .button_modal{
+      margin-top: 40px;
+  }
+
+  .signup_button {
+    margin: 0px;
+    flex: 1 0 100%;
+    --background: var(--ion-color-warning-tint);
+    --color: var(--ion-color-dark);
+  }

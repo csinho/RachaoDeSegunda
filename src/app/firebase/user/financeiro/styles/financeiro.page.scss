@@ -1,0 +1,41 @@
+.deals-listing-content {
+  position: relative;
+  top: 40px;
+}
+
+.listing-item_ {
+  background-color: rgba(247, 237, 136, 0.13);
+  margin: var(--page-margin);
+  border-radius: 5px 5px 75px 5px;
+  border-bottom-style: solid;
+  border-bottom-width: calc((var(--page-margin) / 2) * 4);
+  border-bottom-color: rgba(37, 36, 25, 0.699);
+  padding: 20px;
+}
+
+.listing-item_1 {
+  background-color: rgba(247, 237, 136, 0.13);
+  margin: var(--page-margin);
+  border-radius: 75px 5px 5px 5px;
+  border-top-style: solid;
+  border-top-width: calc((var(--page-margin) / 2) * 4);
+  border-top-color: rgba(37, 36, 25, 0.699);
+  padding: 20px;
+}
+
+.texto_ {
+  width: 100%;
+  bottom: 10px;
+  left: 5px;
+  color: rgba(37, 36, 25, 0.699);
+  text-align: center;
+  top: 230px;
+}
+.texto_1 {
+  width: 100%;
+  bottom: 5px;
+  left: 10px;
+  color: rgba(37, 36, 25, 0.699);
+  text-align: center;
+  top: 310px;
+}

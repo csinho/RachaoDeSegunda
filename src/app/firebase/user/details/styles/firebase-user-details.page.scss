@@ -1,0 +1,307 @@
+@import "../../../../../theme/mixins/scrollbars";
+
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+
+  --page-related-users-gutter: calc(var(--page-margin) / 2);
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.user-content {
+  --background: var(--page-background-list);
+
+  .user-info-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: var(--page-margin);
+
+    .user-image-col {
+      margin: 0px auto;
+      margin-bottom: calc(var(--page-margin) / 2);
+
+      .user-image {
+        border-radius: 50%;
+      }
+    }
+
+    .user-details-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .user-name {
+        margin: 0px;
+        margin-bottom: calc(var(--page-margin) / 2);
+        min-width: 40%;
+      }
+
+      .user_rating {
+        margin: 0px;
+        margin-bottom: calc(var(--page-margin) / 2);
+        min-width: 40%;
+        top: 5px;
+        .price {
+          color: var(--ion-color-warning-tint);
+          font-size: 25px;
+        }
+
+        .no-price {
+          color: rgba(var(--ion-color-medium-rgb), 0.5);
+          font-size: 25px;
+        }
+      }
+
+      .user-age {
+        font-size: 14px;
+        font-weight: 300;
+        min-width: 60%;
+      }
+    }
+
+    .actions-col {
+      text-align: center;
+      margin-top: var(--page-margin);
+
+      .action-btn {
+        --border-radius: 50%;
+        --padding-start: 0px;
+        --padding-end: 0px;
+
+        width: 4ch;
+        height: 4ch;
+
+        .btn-icon {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .content-section {
+    padding: var(--page-margin);
+    border-top: solid 1px var(--ion-color-light-shade);
+
+    .section-header {
+      margin-top: 0px;
+      margin-bottom: var(--page-margin);
+    }
+  }
+
+  .user-experience-wrapper {
+    .experience-list {
+      margin: 0px;
+      padding: 0px;
+
+      .experience-item {
+        --min-height: initial;
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --inner-padding-start: 0px;
+        --inner-padding-end: 0px;
+
+        &:not(:last-child) {
+          padding-bottom: calc(var(--page-margin) / 2);
+        }
+
+        .experience-list-icon {
+          margin: 0px;
+          margin-right: calc(var(--page-margin) / 2);
+        }
+
+        .experience-label {
+          font-size: 16px;
+          font-weight: 300;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .related-users-wrapper {
+    .related-users-row {
+      --ion-grid-columns: 7; // We want to show three users and a half. Each user fills 2 cols => (3.5 * 2 = 7 cols)
+      --ion-grid-column-padding: 0px;
+
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      will-change: scroll-position;
+      margin-left: calc(var(--page-margin) * -1);
+      margin-right: calc(var(--page-margin) * -1);
+
+      @include hide-scrollbars();
+
+      &::before,
+      &::after {
+        content: "";
+        flex: 0 0 calc(var(--page-margin) - var(--page-related-users-gutter));
+      }
+
+      .related-user-item {
+        padding: 0px var(--page-related-users-gutter);
+
+        .related-user-name {
+          display: block;
+          text-align: center;
+          margin-top: calc(var(--page-margin) / 2);
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 50px;
+  }
+
+  .related-users-radio {
+    .radio-tags {
+      padding: 0px calc(var(--page-margin) - var(--page-tags-gutter));
+      justify-content: space-between;
+      width: 80px;
+
+      --radio-tag-color: #000;
+      --radio-tag-background: #fff;
+      --radio-tag-active-color: #fff;
+      --radio-tag-active-background: #000;
+
+      .radio-tag {
+        // Reset values from Ionic (ion-item) styles
+        --padding-start: 0px;
+        --inner-padding-end: 8px;
+        --inner-padding-start: 8px;
+        --min-height: 38px;
+
+        --border-radius: 8px;
+        --border-width: 1px;
+        --border-style: solid;
+        --border-color: var(--radio-tag-color);
+        --ion-item-background: var(--radio-tag-background);
+        --ion-item-color: var(--radio-tag-color);
+
+        //background-color: var(--ion-color-tertiary-tint);
+
+        &[status_mes="0"] {
+          // inicio = situação normal
+          --border-color: var(--ion-color-tertiary-tint);
+          --color: var(--ion-color-tertiary-tint);
+        }
+        &[status_mes="1"] {
+          //  situação não pago
+          --border-color: var(--ion-color-secondary-tint);
+          --color: var(--ion-color-secondary-tint);
+        }
+        &[status_mes="2"] {
+          // fim = situação pago
+          --border-color: var(--ion-color-success-tint);
+          --color: var(--ion-color-success-tint);
+        }
+
+        flex: 1;
+
+        .tag-label {
+          margin: 5px;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.2px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .signup_button {
+    --background: var(--ion-color-warning-tint);
+    --color: #000;
+  }
+  .review-rating {
+    width: 56px;
+    color: var(--ion-color-lightest);
+    border-radius: var(--app-narrow-radius);
+    padding: calc(var(--page-margin) / 4) calc(var(--page-margin) / 2);
+    font-size: 12px;
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    // Default color
+    background-color: var(--ion-color-medium-tint);
+
+    &[ratingBase="0"] {
+      background-color: var(--ion-color-secondary-tint);
+    }
+    &[ratingBase="1"] {
+      background-color: var(--ion-color-tertiary-tint);
+    }
+    &[ratingBase="2"] {
+      background-color: var(--ion-color-success-tint);
+    }
+  }
+}
+
+.details-price-range {
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-align: left;
+  top: 5px;
+
+  .price {
+    color: var(--ion-color-warning-tint);
+  }
+
+  .no-price {
+    color: rgba(var(--ion-color-medium-rgb), 0.5);
+  }
+}
+
+.heading-row {
+  margin-bottom: var(--page-margin);
+  justify-content: space-between;
+  align-items: center;
+
+  .media-title {
+    font-size: 14px;
+  }
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+  clip: rect(0, 0, 0, 0);
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  width: 1em;
+  padding: 0.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 200%;
+  line-height: 1.2;
+  color: #ddd;
+}
+
+.rating:not(:checked) > label:before {
+  content: "★ ";
+}
+
+.rating > input:checked ~ label {
+  color: #f70;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: gold;
+}
+
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+}

@@ -1,0 +1,40 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- We need the form wrapping the slides so all the inputs in the different slides are part of the same form -->
+  <ion-slides class="getting-started-slides" pager="true">
+    <ion-slide class="interests-to-follow-slide question-slide">
+      <ion-row class="slide-inner-row users_div_modal" >
+        <ion-col class="heading-col">
+          <h2 class="slide-title">Quem é <b>você</b>?</h2>
+          <p class="slide-subtitle">
+            clique no seu avatar e depois em próximo!
+          </p>
+        </ion-col>
+        <ion-col class="question-options-col ">
+          <ion-row class="options-list-row">
+            <ion-col size="4" *ngFor="let item of items" class="users_name_modal">
+              <div class="custom-checkbox">
+                <app-image-shell [display]="'cover'" animation="spinner" class="checkbox-cover teste" [src]="item.avatar">
+                  <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <ion-checkbox 
+                      [(ngModel)]="item.isCkeked" 
+                      (click)="abrirConfimacao(item)"
+                      >
+                      <!-- [routerLink]="['/firebase/confimation', item.id]"
+                     -->
+                    </ion-checkbox> 
+                  </app-aspect-ratio>
+                </app-image-shell>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

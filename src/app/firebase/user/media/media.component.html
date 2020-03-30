@@ -1,0 +1,161 @@
+<section class="content-section user-experience-wrapper">
+	<ion-row class="heading-row title">
+		<h5 class="section-header">Votação Aberta</h5>
+	</ion-row>
+	<ion-row class="heading-row">
+		<span class="media-title">Média Campo</span>
+		<div class="rating">
+			<input type="radio" [checked]="rating_campo===5" />
+			<label (click)='onClick(5)'></label>
+
+			<input type="radio" [checked]="rating_campo===4" />
+			<label (click)='onClick(4)'></label>
+
+			<input type="radio" [checked]="rating_campo===3" />
+			<label (click)='onClick(3)'></label>
+
+			<input type="radio" [checked]="rating_campo===2" />
+			<label (click)='onClick(2)'></label>
+
+			<input type="radio" [checked]="rating_campo===1" />
+			<label (click)='onClick(1)'></label>
+		</div>
+	</ion-row>
+	<ion-row class="heading-row">
+		<span class="media-title">Média Individual</span>
+		<div class="rating">
+			<input type="radio" [checked]="rating_individual===5" />
+			<label (click)='onClick_individual(5)'></label>
+
+			<input type="radio" [checked]="rating_individual===4" />
+			<label (click)='onClick_individual(4)'></label>
+
+			<input type="radio" [checked]="rating_individual===3" />
+			<label (click)='onClick_individual(3)'></label>
+
+			<input type="radio" [checked]="rating_individual===2" />
+			<label (click)='onClick_individual(2)'></label>
+
+			<input type="radio" [checked]="rating_individual===1" />
+			<label (click)='onClick_individual(1)'></label>
+		</div>
+	</ion-row>
+    <hr>
+	<ion-row class="heading-row">
+		<span class="media-title">Raça</span>
+		<div class="rating">
+			<input type="radio" [checked]="rating_raca===5" />
+			<label (click)='onClick_raca(5)'></label>
+
+			<input type="radio" [checked]="rating_raca===4" />
+			<label (click)='onClick_raca(4)'></label>
+
+			<input type="radio" [checked]="rating_raca===3" />
+			<label (click)='onClick_raca(3)'></label>
+
+			<input type="radio" [checked]="rating_raca===2" />
+			<label (click)='onClick_raca(2)'></label>
+
+			<input type="radio" [checked]="rating_raca===1" />
+			<label (click)='onClick_raca(1)'></label>
+		</div>
+	</ion-row>
+	<ion-row class="heading-row">
+		<span class="media-title">Drible</span>
+		<div class="rating">
+			<input type="radio" [checked]="rating_drible===5" />
+			<label (click)='onClick_drible(5)'></label>
+
+			<input type="radio" [checked]="rating_drible===4" />
+			<label (click)='onClick_drible(4)'></label>
+
+			<input type="radio" [checked]="rating_drible===3" />
+			<label (click)='onClick_drible(3)'></label>
+
+			<input type="radio" [checked]="rating_drible===2" />
+			<label (click)='onClick_drible(2)'></label>
+
+			<input type="radio" [checked]="rating_drible===1" />
+			<label (click)='onClick_drible(1)'></label>
+		</div>
+	</ion-row>
+    <ion-row class="heading-row">
+		<span class="media-title">Marcação</span>
+		<div class="rating">
+			<input type="radio" [checked]="rating_marcacao===5" />
+			<label (click)='onClick_marcacao(5)'></label>
+
+			<input type="radio" [checked]="rating_marcacao===4" />
+			<label (click)='onClick_marcacao(4)'></label>
+
+			<input type="radio" [checked]="rating_marcacao===3" />
+			<label (click)='onClick_marcacao(3)'></label>
+
+			<input type="radio" [checked]="rating_marcacao===2" />
+			<label (click)='onClick_marcacao(2)'></label>
+
+			<input type="radio" [checked]="rating_marcacao===1" />
+			<label (click)='onClick_marcacao(1)'></label>
+		</div>
+	</ion-row>
+	<ion-row class="heading-row">
+		<span class="media-title">Raça</span>
+		<div class="rating">
+			<input type="radio" [checked]="rating_raca===5" />
+			<label (click)='onClick_passe(5)'></label>
+
+			<input type="radio" [checked]="rating_raca===4" />
+			<label (click)='onClick_passe(4)'></label>
+
+			<input type="radio" [checked]="rating_raca===3" />
+			<label (click)='onClick_passe(3)'></label>
+
+			<input type="radio" [checked]="rating_raca===2" />
+			<label (click)='onClick_passe(2)'></label>
+
+			<input type="radio" [checked]="rating_raca===1" />
+			<label (click)='onClick_passe(1)'></label>
+		</div>
+	</ion-row>
+    <ion-row class="heading-row">
+		<span class="media-title">Chute</span>
+		<div class="rating">
+			<input type="radio" [checked]="rating_chute===5" />
+			<label (click)='onClick_chute(5)'></label>
+
+			<input type="radio" [checked]="rating_chute===4" />
+			<label (click)='onClick_chute(4)'></label>
+
+			<input type="radio" [checked]="rating_chute===3" />
+			<label (click)='onClick_chute(3)'></label>
+
+			<input type="radio" [checked]="rating_chute===2" />
+			<label (click)='onClick_chute(2)'></label>
+
+			<input type="radio" [checked]="rating_chute===1" />
+			<label (click)='onClick_chute(1)'></label>
+		</div>
+	</ion-row>
+	<ion-row class="heading-row">
+		<span class="media-title">Velocidade</span>
+		<div class="rating">
+			<input type="radio" [checked]="rating_velocidade===5" />
+			<label (click)='onClick_velocidade(5)'></label>
+
+			<input type="radio" [checked]="rating_velocidade===4" />
+			<label (click)='onClick_velocidade(4)'></label>
+
+			<input type="radio" [checked]="rating_velocidade===3" />
+			<label (click)='onClick_velocidade(3)'></label>
+
+			<input type="radio" [checked]="rating_velocidade===2" />
+			<label (click)='onClick_velocidade(2)'></label>
+
+			<input type="radio" [checked]="rating_velocidade===1" />
+			<label (click)='onClick_velocidade(1)'></label>
+		</div>
+	</ion-row>
+	<ion-col class="call-to-action-col">
+		<ion-button class="signup_button" expand="block" (click)="confirmaMedia()">Confirmar</ion-button>
+	</ion-col>
+</section>

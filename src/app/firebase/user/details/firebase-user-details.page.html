@@ -1,0 +1,105 @@
+<ion-header>
+	<ion-toolbar color="primary">
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="firebase/listing"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Detalhes</ion-title>
+		<ion-buttons slot="end" *ngIf="admUser === 'adm'">
+			<ion-button (click)="openFirebaseUpdateModal()">
+				Editar
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="user-content">
+	<ion-row class="user-info-row">
+		<ion-col class="user-image-col" size="5">
+			<app-aspect-ratio [ratio]="{w: 1, h: 1}">
+				<app-image-shell [display]="'cover'" class="user-image" animation="spinner" [src]="user.avatar"
+					[alt]="'item image'">
+				</app-image-shell>
+			</app-aspect-ratio>
+		</ion-col>
+		<ion-col class="user-details-col" size="12">
+			<h2 class="user-name">
+				<app-text-shell animation="bouncing" [data]="user.name"></app-text-shell>
+			</h2>
+			<div class="details-price-range" *ngIf="user?.mediaSemana <= '5'">
+				<span class="price" *ngFor="let media of [].constructor(0)">★</span>
+				<span class="no-price" *ngFor="let media of [].constructor(5 - (0 || 0))">★</span>
+			</div>
+			<div class="details-price-range" *ngIf="user?.mediaSemana >= '5.1' && user?.mediaSemana <= '28' ">
+				<span class="price" *ngFor="let media of [].constructor(1)">★</span>
+				<span class="no-price" *ngFor="let media of [].constructor(5 - (1 || 1))">★</span>
+			</div>
+			<div class="details-price-range" *ngIf="user?.mediaSemana >= '28.1' && user?.mediaSemana <= '55.9'">
+				<span class="price" *ngFor="let media of [].constructor(2)">★</span>
+				<span class="no-price" *ngFor="let media of [].constructor(5 - (2 || 1))">★</span>
+			</div>
+			<div class="details-price-range" *ngIf="user?.mediaSemana >= '56' && user?.mediaSemana <= '83.9'">
+				<span class="price" *ngFor="let media of [].constructor(3)">★</span>
+				<span class="no-price" *ngFor="let media of [].constructor(5 - (3 || 1))">★</span>
+			</div>
+			<div class="details-price-range" *ngIf="user?.mediaSemana >= '84' && user?.mediaSemana <= '111.9'">
+				<span class="price" *ngFor="let media of [].constructor(4)">★</span>
+				<span class="no-price" *ngFor="let media of [].constructor(5 - (4 || 1))">★</span>
+			</div>
+			<div class="details-price-range" *ngIf="user?.mediaSemana >= '112'">
+				<span class="price" *ngFor="let media of [].constructor(5)">★</span>
+				<span class="no-price" *ngFor="let media of [].constructor(5 - (5 || 1))">★</span>
+			</div>
+		</ion-col>
+	</ion-row>
+
+	<section class="content-section user-experience-wrapper" *ngIf="confirmaMedia === true">
+		<ion-row class="heading-row">
+			<ion-col size="6">
+				<h5 class="section-header">Votação Aberta</h5>
+			</ion-col>
+			<ion-col class="call-to-action-col">
+				<ion-button class="signup_button" expand="block" (click)="open()">Vote agora</ion-button>
+			</ion-col>
+		</ion-row>
+	</section>
+
+	<section class="content-section user-experience-wrapper">
+		<h5 class="section-header">Habilidades</h5>
+		<ion-list class="experience-list" lines="none">
+			<ion-item class="experience-item" *ngFor="let skill of user.skills">
+				<label class="experience-label">
+          <app-text-shell animation="bouncing" [data]="skill?.name"></app-text-shell>
+        </label>
+				<ion-icon class="experience-list-icon" slot="start" name="checkmark" color="dark"></ion-icon>
+			</ion-item>
+		</ion-list>
+	</section>
+
+	<section class="content-section related-users-radio">
+		<h5 class="section-header">Financeiro</h5>
+		<section class="grid">
+			<ion-row class="radio-tags" *ngFor="let mes of user.meses">
+				<label class="experience-label">
+					<ion-item class="radio-tag" lines="none" [attr.status_mes]="mes?.status">
+                         <app-text-shell animation="bouncing" [data]="mes?.nome"></app-text-shell>
+					</ion-item>
+                </label>
+			</ion-row>
+		</section>
+	</section>
+
+	<section class="content-section related-users-wrapper" *ngIf="relatedUsers.length > 0">
+		<h5 class="section-header">Jogadores com habilidades semelhantes</h5>
+		<ion-row class="related-users-row">
+			<ion-col class="related-user-item" size="2" *ngFor="let user of relatedUsers">
+				<app-aspect-ratio [ratio]="{w: 1, h: 1}">
+					<app-image-shell [display]="'cover'" class="related-user-picture" [src]="user.avatar"
+						[routerLink]="['/firebase/details', user.id]"></app-image-shell>
+				</app-aspect-ratio>
+				<span class="related-user-name">
+          <app-text-shell [data]="user.name"></app-text-shell>
+        </span>
+			</ion-col>
+		</ion-row>
+	</section>
+</ion-content>

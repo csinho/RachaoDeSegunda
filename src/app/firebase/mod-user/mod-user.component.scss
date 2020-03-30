@@ -1,0 +1,27 @@
+.mod-content {
+  --background: var(--page-background-list);
+
+  img {
+    margin-top: 5px;
+    margin-left: 5%;
+    border-radius: 3%;
+    object-fit: cover;
+    width: 80%;
+    height: 300px;
+  }
+  .center {
+    text-align: center;
+    color: var(--ion-color-light);
+  }
+
+  .button_modal {
+    margin-top: 40px;
+  }
+
+  .signup_button {
+    margin: 0px;
+    flex: 1 0 100%;
+    --background: var(--ion-color-warning-tint);
+    --color: var(--ion-color-dark);
+  }
+}

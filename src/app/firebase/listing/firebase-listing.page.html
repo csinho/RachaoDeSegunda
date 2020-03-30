@@ -1,0 +1,81 @@
+<ion-header [translucent]="true" class="ion-no-border">
+	<ion-toolbar color="primary">
+		<ion-buttons slot="end" *ngIf="admUser === 'adm'" >
+			<ion-button (click)="openFirebaseCreateModal()">
+				<ion-icon color="secondary" slot="icon-only" name="add"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+	<ion-toolbar class="filters-toolbar">
+		<div class="banner">
+			<ion-grid>
+				<ion-row>
+					<ion-col></ion-col>
+					<ion-col>
+						<ion-img src="/../assets/sample-images/logo.png"></ion-img>
+					</ion-col>
+					<ion-col></ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="firebase-listing-content" [fullscreen]="true">
+	<ion-list class="items-list" *ngIf="items?.length > 0">
+		<ion-card class="list-card" *ngFor="let item of items" [routerLink]="['/firebase/details', item.id]">
+			<ion-item class="list-item">
+				<ion-row class="user-row">
+					<ion-col size="3" class="user-image-wrapper">
+						<app-aspect-ratio [ratio]="{w: 1, h: 1}">
+							<app-image-shell class="img" animation="spinner" [display]="'cover'" [src]="item.avatar"
+								[alt]="'item image'"></app-image-shell>
+						</app-aspect-ratio>
+					</ion-col>
+					<ion-col size="6" class="user-data-wrapper">
+						<div class="user-info">
+							<h3 class="user-name">
+								<app-text-shell animation="bouncing" [data]="item.name">
+								</app-text-shell>
+							</h3>
+							<h5 class="user-age">
+								<app-text-shell animation="bouncing" [data]="item.lastname">
+								</app-text-shell>
+							</h5>
+							<div class="details-price-range" *ngIf="item?.mediaSemana <= '5'">
+								<span class="price" *ngFor="let media of [].constructor(0)">★</span>
+								<span class="no-price" *ngFor="let media of [].constructor(5 - (0 || 0))">★</span>
+							</div>
+							<div class="details-price-range"
+								*ngIf="item?.mediaSemana >= '5.1' && item?.mediaSemana <= '28' ">
+								<span class="price" *ngFor="let media of [].constructor(1)">★</span>
+								<span class="no-price" *ngFor="let media of [].constructor(5 - (1 || 1))">★</span>
+							</div>
+							<div class="details-price-range"
+								*ngIf="item?.mediaSemana >= '28.1' && item?.mediaSemana <= '55.9'">
+								<span class="price" *ngFor="let media of [].constructor(2)">★</span>
+								<span class="no-price" *ngFor="let media of [].constructor(5 - (2 || 1))">★</span>
+							</div>
+							<div class="details-price-range"
+								*ngIf="item?.mediaSemana >= '56' && item?.mediaSemana <= '83.9'">
+								<span class="price" *ngFor="let media of [].constructor(3)">★</span>
+								<span class="no-price" *ngFor="let media of [].constructor(5 - (3 || 1))">★</span>
+							</div>
+							<div class="details-price-range"
+								*ngIf="item?.mediaSemana >= '84' && item?.mediaSemana <= '111.9'">
+								<span class="price" *ngFor="let media of [].constructor(4)">★</span>
+								<span class="no-price" *ngFor="let media of [].constructor(5 - (4 || 1))">★</span>
+							</div>
+							<div class="details-price-range" *ngIf="item?.mediaSemana >= '112'">
+								<span class="price" *ngFor="let media of [].constructor(5)">★</span>
+								<span class="no-price" *ngFor="let media of [].constructor(5 - (5 || 1))">★</span>
+							</div>
+						</div>
+					</ion-col>
+				</ion-row>
+				<div class="list_status" [attr.statusJogador]="item.statusJogador">
+				</div>
+			</ion-item>
+		</ion-card>
+	</ion-list>
+</ion-content>

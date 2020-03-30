@@ -1,0 +1,14 @@
+<ion-content class="mod-content">
+	<ion-col size="12">
+		<img [src]="user.avatar">
+		<div class="center">
+			<h3>{{user.name}}</h3>
+		</div>
+	</ion-col>
+	<ion-col class="call-to-action-col button_modal">
+		<ion-button class="signup_button" expand="block" (click)="closeModal()">Voltar</ion-button>
+	</ion-col>
+	<ion-col class="call-to-action-col button_modal">
+		<ion-button class="signup_button" expand="block" (click)="abrirHome()">Próximo</ion-button>
+	</ion-col>
+</ion-content>

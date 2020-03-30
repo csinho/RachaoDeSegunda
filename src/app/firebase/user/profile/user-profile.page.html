@@ -1,0 +1,65 @@
+<ion-content class="user-profile-content" *ngIf="items?.length === 1">
+	<div *ngFor="let item of items">
+		<div class="rotated"></div>
+		<ion-grid class="grid">
+			<ion-row class="user-details-section grid-template-columns-3 ">
+				<ion-col>
+				</ion-col>
+				<ion-col>
+				</ion-col>
+				<ion-col class="user-image-wrapper">
+					<app-image-shell class="user-image" animation="spinner" [src]="item.avatar"></app-image-shell>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<ion-row class="user-details-section">
+			<ion-col class="user-info-wrapper">
+				<ion-row class="user-data-row">
+					<ion-col size="9">
+						<h3 class="user-name">
+							<app-text-shell [data]="item.name"></app-text-shell>
+						</h3>
+						<h5 class="user-title">
+							<app-text-shell [data]="item.lastname"></app-text-shell>
+						</h5>
+					</ion-col>
+				</ion-row>
+			</ion-col>
+		</ion-row>
+		<div class="radar">
+			<canvas baseChart [datasets]="radarChartData" [options]="radarChartOptions" [labels]="radarChartLabels"
+				[chartType]="radarChartType">
+			</canvas>
+		</div>
+		<div class="user-about-section">
+			<h3 class="details-section-title">Média</h3>
+			<ion-row class="heading-row">
+				<div class="details-price-range" *ngIf="item?.mediaSemana <= '5'">
+					<span class="price" *ngFor="let media of [].constructor(0)">★</span>
+					<span class="no-price" *ngFor="let media of [].constructor(5 - (0 || 0))">★</span>
+				</div>
+				<div class="details-price-range" *ngIf="item?.mediaSemana >= '5.1' && item?.mediaSemana <= '28' ">
+					<span class="price" *ngFor="let media of [].constructor(1)">★</span>
+					<span class="no-price" *ngFor="let media of [].constructor(5 - (1 || 1))">★</span>
+				</div>
+				<div class="details-price-range" *ngIf="item?.mediaSemana >= '28.1' && item?.mediaSemana <= '55.9'">
+					<span class="price" *ngFor="let media of [].constructor(2)">★</span>
+					<span class="no-price" *ngFor="let media of [].constructor(5 - (2 || 1))">★</span>
+				</div>
+				<div class="details-price-range" *ngIf="item?.mediaSemana >= '56' && item?.mediaSemana <= '83.9'">
+					<span class="price" *ngFor="let media of [].constructor(3)">★</span>
+					<span class="no-price" *ngFor="let media of [].constructor(5 - (3 || 1))">★</span>
+				</div>
+				<div class="details-price-range" *ngIf="item?.mediaSemana >= '84' && item?.mediaSemana <= '111.9'">
+					<span class="price" *ngFor="let media of [].constructor(4)">★</span>
+					<span class="no-price" *ngFor="let media of [].constructor(5 - (4 || 1))">★</span>
+				</div>
+				<div class="details-price-range" *ngIf="item?.mediaSemana >= '112'">
+					<span class="price" *ngFor="let media of [].constructor(5)">★</span>
+					<span class="no-price" *ngFor="let media of [].constructor(5 - (5 || 1))">★</span>
+				</div>
+				<h3 class="media">{{item?.mediaSemana}}</h3>
+			</ion-row>
+		</div>
+	</div>
+</ion-content>

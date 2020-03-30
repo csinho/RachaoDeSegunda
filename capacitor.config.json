@@ -1,0 +1,12 @@
+{
+  "appId": "com.rachao.rachaoDaSegundaADM",
+  "appName": "RachaoDaSegundaADM",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}

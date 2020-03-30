@@ -1,0 +1,8 @@
+{
+  "name": "RachaoDaSegundaADM",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

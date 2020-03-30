@@ -1,0 +1,99 @@
+section {
+  width: 300px !important; /* aqui vc coloca a largura que deseja */
+  margin: 15px auto;
+}
+
+.user-experience-wrapper {
+  hr {
+    border: 0;
+    border-top: 1px solid #5e5c02;
+  }
+  .experience-list {
+    margin: 0px;
+    padding: 0px;
+
+    .experience-item {
+      --min-height: initial;
+      --padding-start: 0px;
+      --padding-end: 0px;
+      --inner-padding-start: 0px;
+      --inner-padding-end: 0px;
+
+      &:not(:last-child) {
+        padding-bottom: calc(var(--page-margin) / 2);
+      }
+
+      .experience-list-icon {
+        margin: 0px;
+        margin-right: calc(var(--page-margin) / 2);
+      }
+
+      .experience-label {
+        font-size: 16px;
+        font-weight: 300;
+        width: 100%;
+      }
+    }
+  }
+  .heading-row {
+    margin-bottom: var(--page-margin);
+    justify-content: space-between;
+    align-items: center;
+
+    .media-title {
+      font-size: 14px;
+    }
+
+    .section-header {
+      margin-top: 0px;
+      margin-bottom: var(--page-margin);
+    }
+  }
+
+  .title {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rating:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .rating:not(:checked) > label {
+    float: right;
+    width: 1em;
+    padding: 0.1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 200%;
+    line-height: 1.2;
+    color: #ddd;
+  }
+
+  .rating:not(:checked) > label:before {
+    content: "★ ";
+  }
+
+  .rating > input:checked ~ label {
+    color: #f70;
+  }
+
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+    color: gold;
+  }
+
+  .rating > input:checked ~ label:hover,
+  .rating > input:checked ~ label:hover ~ label,
+  .rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+  }
+
+  .signup_button {
+    --background: var(--ion-color-warning-tint);
+    --color: #000;
+  }
+}
